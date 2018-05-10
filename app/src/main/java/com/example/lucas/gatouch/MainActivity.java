@@ -52,43 +52,44 @@ public class MainActivity extends AppCompatActivity {
         }
         turn=true;
         winLbl.setText("");
+        turnLbl.setText("1");
     }
     public void mark(View view){
         switch (view.getId()){
             case R.id.btn11:{
-                play(1,1);
+                play(0,0);
                 break;
             }
             case R.id.btn21:{
-                play(2,1);
+                play(1,0);
                 break;
             }
             case R.id.btn31:{
-                play(3,1);
+                play(2,0);
                 break;
             }
             case R.id.btn12:{
-                play(1,2);
+                play(0,1);
                 break;
             }
             case R.id.btn22:{
-                play(2,2);
+                play(1,1);
                 break;
             }
             case R.id.btn32:{
-                play(3,2);
+                play(2,1);
                 break;
             }
             case R.id.btn13:{
-                play(1,3);
+                play(0,2);
                 break;
             }
             case R.id.btn23:{
-                play(2,3);
+                play(1,2);
                 break;
             }
             case R.id.btn33:{
-                play(3,3);
+                play(2,2);
                 break;
             }
         }
@@ -116,15 +117,35 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        if(turn)
+        if(turn){
             turn=false;
-        else
+            turnLbl.setText("2");}
+        else{
             turn=true;
+            turnLbl.setText("1");}
 
     }
 
     private boolean checkWin() {
-        return true;
+        if(
+          ((btnInt[0][0]==1||btnInt[0][0]==2)
+                  &&
+          ((btnInt[0][0]==btnInt[0][1]&&btnInt[0][1]==btnInt[0][2])||
+          (btnInt[0][0]==btnInt[1][0]&&btnInt[1][0]==btnInt[2][0])||
+          (btnInt[0][0]==btnInt[1][1]&&btnInt[1][1]==btnInt[2][2])))
+                  ||
+          ((btnInt[1][1]==1||btnInt[1][1]==2)
+                  &&
+          ((btnInt[1][1]==btnInt[1][0]&&btnInt[1][1]==btnInt[1][2])||
+          (btnInt[1][1]==btnInt[0][1]&&btnInt[1][1]==btnInt[2][1])||
+          (btnInt[1][1]==btnInt[0][2]&&btnInt[1][1]==btnInt[2][0])))
+                  ||
+          ((btnInt[2][2]==1||btnInt[2][2]==2)
+                  &&
+          ((btnInt[2][2]==btnInt[2][1]&&btnInt[2][1]==btnInt[2][0])||
+          (btnInt[2][2]==btnInt[0][2]&&btnInt[0][2]==btnInt[1][2]))))
+            return true;
+        return false;
     }
 
     public void movePvE(){
