@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     Button[][] btn= new Button[3][3];
+    TextView winLbl,turnLbl;
     int[][] btnInt=new int[3][3];
     boolean turn=true;//Set turn to Player 1
     RadioButton Rpvp,Rpve;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         btn[2][2]=(Button)findViewById(R.id.btn33);
         Rpve=(RadioButton)findViewById(R.id.pve);
         Rpvp=(RadioButton)findViewById(R.id.pvp);
+        winLbl=(TextView)findViewById(R.id.winLbl);
+        turnLbl=(TextView)findViewById(R.id.turnLbl);
     }
     public void option(View view){
         if (Rpve.isChecked())
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         turn=true;
+        winLbl.setText("");
     }
     public void mark(View view){
         switch (view.getId()){
@@ -89,10 +94,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if (modePvE)
             movePvE();
-        if (turn)
-            turn=false;
-        else
-            turn=true;
 
     }
 
@@ -104,11 +105,26 @@ public class MainActivity extends AppCompatActivity {
         else{
             btn[x][y].setText("X");
             btnInt[x][y]=2;}
-        checkWin();
+        if(checkWin()){
+            if(turn)
+                winLbl.setText("Gana Jugador 1");
+            else
+                winLbl.setText("Gana Jugador 2");
+            for(int i=0;i<3;i++){
+                for(int e=0;e<3;e++){
+                    btn[i][e].setEnabled(false);
+                }
+            }
+        }
+        if(turn)
+            turn=false;
+        else
+            turn=true;
+
     }
 
-    private void checkWin() {
-        
+    private boolean checkWin() {
+        return true;
     }
 
     public void movePvE(){
