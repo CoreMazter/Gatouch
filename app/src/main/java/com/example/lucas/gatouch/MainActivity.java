@@ -6,12 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     Button[][] btn= new Button[3][3];
     int[][] btnInt=new int[3][3];
     boolean turn=true;//Set turn to Player 1
     RadioButton Rpvp,Rpve;
-    Boolean mode=false;
+    boolean modePvE=true;//Set mode to PvE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         Rpvp=(RadioButton)findViewById(R.id.pvp);
     }
     public void option(View view){
-        if (Rpvp.isChecked())
-            mode=true;
+        if (Rpve.isChecked())
+            modePvE=true;
         else
-            mode=false;
+            modePvE=false;
         reset();
     }
     public void reset(){
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 btnInt[i][e]=0;
             }
         }
+        turn=true;
     }
     public void mark(View view){
         switch (view.getId()){
@@ -84,11 +87,31 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
+        if (modePvE)
+            movePvE();
+        if (turn)
+            turn=false;
+        else
+            turn=true;
 
     }
 
     public void play(int x, int y) {
-
+        btn[x][y].setEnabled(false);
+        if(turn){
+            btn[x][y].setText("O");
+            btnInt[x][y]=1;}
+        else{
+            btn[x][y].setText("X");
+            btnInt[x][y]=2;}
+        checkWin();
     }
 
+    private void checkWin() {
+        
+    }
+
+    public void movePvE(){
+
+    }
 }
