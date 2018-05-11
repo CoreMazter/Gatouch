@@ -98,8 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
         }
-        if (modePvE)
-            movePvE();
+
+        if (modePvE){
+            if(!checkWin())
+            movePvE();}
 
     }
 
