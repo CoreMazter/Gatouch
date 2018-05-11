@@ -8,7 +8,35 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
-
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/pvp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PvP"
+            android:onClick="option"
+            android:checked="false"/>
+        <RadioButton
+            android:id="@+id/pve"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="PvE"
+            android:onClick="option"
+            android:checked="true"/>
+    </RadioGroup>
+        <TextView
+            android:id="@+id/winLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Reset"
+            android:onClick="bReset"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,17 +47,20 @@
             android:id="@+id/btn11"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn21"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn31"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,17 +70,20 @@
             android:id="@+id/btn12"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn22"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn32"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,20 +93,34 @@
             android:id="@+id/btn13"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn23"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
         <Button
             android:id="@+id/btn33"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="mark"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Turno del jugador "
+            android:textSize="30sp"/>
+        <TextView
+            android:id="@+id/turnLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="30sp"/>
+    </LinearLayout>
 </LinearLayout>
