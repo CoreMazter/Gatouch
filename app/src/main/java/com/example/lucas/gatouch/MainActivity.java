@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn[0][0]=(Button)findViewById(R.id.btn11);
-        btn[1][1]=(Button)findViewById(R.id.btn21);
-        btn[2][2]=(Button)findViewById(R.id.btn31);
-        btn[0][0]=(Button)findViewById(R.id.btn12);
+        btn[1][0]=(Button)findViewById(R.id.btn21);
+        btn[2][0]=(Button)findViewById(R.id.btn31);
+        btn[0][1]=(Button)findViewById(R.id.btn12);
         btn[1][1]=(Button)findViewById(R.id.btn22);
-        btn[2][2]=(Button)findViewById(R.id.btn32);
-        btn[0][0]=(Button)findViewById(R.id.btn13);
-        btn[1][1]=(Button)findViewById(R.id.btn23);
+        btn[2][1]=(Button)findViewById(R.id.btn32);
+        btn[0][2]=(Button)findViewById(R.id.btn13);
+        btn[1][2]=(Button)findViewById(R.id.btn23);
         btn[2][2]=(Button)findViewById(R.id.btn33);
         Rpve=(RadioButton)findViewById(R.id.pve);
         Rpvp=(RadioButton)findViewById(R.id.pvp);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             modePvE=true;
         else
             modePvE=false;
-        reset();
+        
     }
     public void reset(){
         for(int i=0;i<3;i++){
