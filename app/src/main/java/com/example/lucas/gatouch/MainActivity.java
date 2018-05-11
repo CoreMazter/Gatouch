@@ -155,6 +155,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void movePvE(){
+        Random random=new Random();
+        int x=1,y=1;
+        while (btnInt[x][y]!=0){
+            x=random.nextInt(3);
+            y=random.nextInt(3);
+        }
+        play(x,y);
 
     }
 }
