@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     Button[][] btn= new Button[3][3];
+    Button btnReset;
     TextView winLbl,turnLbl;
     int[][] btnInt=new int[3][3];
     boolean turn=true;//Set turn to Player 1
@@ -34,13 +35,17 @@ public class MainActivity extends AppCompatActivity {
         Rpvp=(RadioButton)findViewById(R.id.pvp);
         winLbl=(TextView)findViewById(R.id.winLbl);
         turnLbl=(TextView)findViewById(R.id.turnLbl);
+        btnReset=(Button)findViewById(R.id.btnReset);
     }
+    public void bReset(View view){
+        reset();}
+
     public void option(View view){
         if (Rpve.isChecked())
             modePvE=true;
         else
             modePvE=false;
-        
+        reset();
     }
     public void reset(){
         for(int i=0;i<3;i++){
@@ -116,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     btn[i][e].setEnabled(false);
                 }
             }
+            return;
         }
         if(turn){
             turn=false;
