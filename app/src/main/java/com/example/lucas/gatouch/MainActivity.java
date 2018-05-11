@@ -104,13 +104,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void play(int x, int y) {
+        if(!checkWin()){
         btn[x][y].setEnabled(false);
         if(turn){
             btn[x][y].setText("O");
             btnInt[x][y]=1;}
         else{
             btn[x][y].setText("X");
-            btnInt[x][y]=2;}
+            btnInt[x][y]=2;}}
         if(checkWin()){
             if(turn)
                 winLbl.setText("Gana Jugador 1");
